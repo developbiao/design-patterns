@@ -1,6 +1,11 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"sync"
+)
+
+var lock sync.Mutex
 
 // private singleton
 type singleton struct{}
@@ -9,6 +14,12 @@ type singleton struct{}
 var instance *singleton = new(singleton)
 
 func GetInstance() *singleton {
+	lock.Lock()
+	defer lock.Unlock()
+
+	if instance == nil {
+		instance = new(singleton)
+	}
 	return instance
 }
 
