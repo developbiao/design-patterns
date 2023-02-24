@@ -3,7 +3,11 @@ package main
 import (
 	"fmt"
 	"sync"
+	"sync/atomic"
 )
+
+// flag for initializaed
+var initialized uint32
 
 var lock sync.Mutex
 
@@ -14,12 +18,19 @@ type singleton struct{}
 var instance *singleton = new(singleton)
 
 func GetInstance() *singleton {
+	// Check flag
+	if atomic.LoadUint32(&initialized) == 1 {
+		return instance
+	}
 	lock.Lock()
 	defer lock.Unlock()
 
-	if instance == nil {
+	if initialized == 0 {
 		instance = new(singleton)
+		// Set flag
+		atomic.StoreUint32(&initialized, 1)
 	}
+
 	return instance
 }
 
