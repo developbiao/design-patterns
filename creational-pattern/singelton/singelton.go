@@ -11,7 +11,7 @@ var once sync.Once
 type singleton struct{}
 
 // private instance
-var instance *singleton = new(singleton)
+var instance *singleton
 
 func GetInstance() *singleton {
 	once.Do(func() {
