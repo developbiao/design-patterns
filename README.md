@@ -9,7 +9,7 @@ They are like pre-made blueprints that you can customize to solve a recurring de
 ## Catalog
 - [x] OOP principles 
 - [x] Creational Patterns
-- [ ] Structural Patterns
+- [x] Structural Patterns
 - [ ] Behavioral Patterns
 
 
