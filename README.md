@@ -10,7 +10,7 @@ They are like pre-made blueprints that you can customize to solve a recurring de
 - [x] OOP principles 
 - [x] Creational Patterns
 - [x] Structural Patterns
-- [ ] Behavioral Patterns
+- [x] Behavioral Patterns
 
 
 
